@@ -9,18 +9,30 @@ export class MessagesComponent implements OnInit {
   messages = [
     {
       id: 0,
-      username: 'Albert',
-      text: 'This is a message',
+      user: {
+        username: 'Albert',
+        photo: 'https://picsum.photos/id/45/200/200',
+        country: 'Australia'
+      },
+      text: 'This is a message'
     },
     {
       id: 1,
-      username: 'Rous',
-      text: 'Hello guys',
+      user: {
+        username: 'Rous',
+        photo: 'https://picsum.photos/id/15/200/200',
+        country: 'Swaziland'
+      },
+      text: 'Hello guys'
     },
     {
       id: 2,
-      username: 'Luka',
-      text: 'Hi, I\'m Luka',
+      user: {
+        username: 'Luka',
+        photo: 'https://picsum.photos/id/87/200/200',
+        country: 'Kenya'
+      },
+      text: 'Hi, I\'m Luka'
     },
   ];
   constructor() { }
