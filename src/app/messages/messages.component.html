@@ -1,1 +1,3 @@
-<p>messages works!</p>
+<div *ngFor="let message of messages">
+  <p>{{message.username}}: {{message.text}}</p>
+</div>
