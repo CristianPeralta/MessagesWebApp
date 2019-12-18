@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-message.component.css']
 })
 export class NewMessageComponent implements OnInit {
+  owner = 'John';
 
   constructor() { }
 
   ngOnInit() {
+  }
+  post() {
+    console.log('New message');
   }
 
 }
