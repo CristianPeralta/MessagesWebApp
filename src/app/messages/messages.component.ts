@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../message.service';
+import { MessageService } from '../shared/messages/message.service';
 
 @Component({
   selector: 'app-messages',
@@ -13,7 +13,12 @@ export class MessagesComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    const messagesResponse = await this.messageService.getMessages();
-    this.messages = messagesResponse;
+    this.getMessages();
+  }
+
+  getMessages() {
+    return this.messageService.getMessages().subscribe((data) => {
+      this.messages = data;
+    });
   }
 }

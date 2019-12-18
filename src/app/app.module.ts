@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 
-import { MessageService } from './message.service';
+import { MessageService } from './shared/messages/message.service';
 import { NewMessageComponent } from './new-message/new-message.component';
 
 @NgModule({
