@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 import { MessageService } from './message.service';
+import { NewMessageComponent } from './new-message/new-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent
+    MessagesComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,

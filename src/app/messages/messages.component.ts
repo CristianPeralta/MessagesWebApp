@@ -7,7 +7,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  messages = [];
+  messages: any = [];
   constructor(
     private messageService: MessageService,
   ) { }
