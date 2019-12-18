@@ -1,11 +1,11 @@
 <mat-card class="card">
   <mat-card-content>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name">
+      <input matInput [(ngModel)]="message.user"  placeholder="Name">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a message"></textarea>
+      <textarea matInput [(ngModel)]="message.text" placeholder="Leave a message"></textarea>
     </mat-form-field>
 
     <mat-card-actions>
