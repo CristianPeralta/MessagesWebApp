@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Message } from './message';
 import { Observable, throwError } from 'rxjs';
@@ -15,6 +15,12 @@ export class MessageService {
     private http: HttpClient
   ) { }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   getMessages(): Observable<Message> {
     return this.http.get<Message>(MESSAGES_API_URL + '/messages')
     .pipe(
@@ -23,7 +29,17 @@ export class MessageService {
     );
   }
 
+  postMessage(message): Observable<Message> {
+    return this.http.post<Message>(MESSAGES_API_URL + '/message', JSON.stringify(message), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
   handleError(error) {
+    console.log('error');
+    console.log(error);
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Get client-side error

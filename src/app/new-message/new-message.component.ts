@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MessageService } from '../shared/messages/message.service';
 
 @Component({
   selector: 'app-new-message',
@@ -6,17 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-message.component.css']
 })
 export class NewMessageComponent implements OnInit {
+  @Output() onPosted = new EventEmitter();
+  constructor(private messageService: MessageService) { }
+
   message = {
-    user: 'John',
+    user: {
+      username: 'Luka',
+      photo: 'https://picsum.photos/id/87/200/200',
+      country: 'Kenya'
+    },
     text: ''
   };
-
-  constructor() { }
 
   ngOnInit() {
   }
   post() {
-    console.log(this.message);
+    this.messageService.postMessage(this.message).subscribe((data) => {
+      this.onPosted.emit(data);
+    });
   }
 
 }
